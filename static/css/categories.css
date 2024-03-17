@@ -1,0 +1,122 @@
+/* Reset default browser styles */
+body, h1, h2, p, ul, li, a, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styles for the navigation bar */
+header {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:#4CAF50 ;
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 300px;
+}
+
+.search-bar button {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.user-buttons button {
+    padding: 8px 12px;
+    background-color: #fff;
+    color: #4CAF50;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.user-buttons button.login-button {
+    margin-right: 15px;
+}
+
+.user-buttons button:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+/* body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+     /* Light gray background color */
+}  */
+
+.container-fluid {
+    height: 100%;
+}
+
+.item-container {
+    height: 70vh; /* Limit the height of the container to 70% of viewport height */
+    overflow-x: auto; /* Add a horizontal scrollbar when items exceed the container width */
+    padding: 10px 0;
+}
+
+.item-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping to the next line */
+    overflow-x: auto; /* Add a horizontal scrollbar when items exceed the container width */
+}
+
+.item-card {
+    flex: 0 0 calc(25% - 20px);
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    background-color: #f0f8f0; /* Light green background color */
+    color: #333; /* Dark gray text color */
+    padding: 10px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #4CAF50; /* Green button background color */
+    border-color: #4CAF50;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 15px;
+}
+
+.btn-primary:hover {
+    background-color: #45a049; /* Darker green when hovering over the button */
+    border-color: #45a049;
+}

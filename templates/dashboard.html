@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% block content %}
+        <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" height="40" class="d-inline-block align-top" alt="">
+            GMART Customer
+        </a>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/cart">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/customer_logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+<br>
+    <div class="text-center"><h2>Welcome, {{ user_name }}!</h2>
+        <p>You are logged in.</p></div>
+
+        <h2>Categories</h2>
+        <div class="category-list">
+            <div class="row">
+              {% for category in categories %}
+                <div class="col-md-3 mb-4 col-sm-6 col-xs-12">
+                  <div class="category-card" style="background-color: white; border: 1px solid #ccc; padding: 10px; text-align: center;">
+                    <h3>{{ category[1] }}</h3>
+                    <a href="{{ url_for('customer_category_products', category_id=category[0]) }}" class="btn btn-primary">Explore</a>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        {% endblock %}
+
+</body>
+</html>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/customer_login.css') }}">
+    <title>Customer Login</title>
+</head>
+<body>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+    <div class="login-page">
+        <div class="form">
+          <!-- <form class="register-form">
+            <input type="text" placeholder="name"/>
+            <input type="password" placeholder="password"/>
+            <input type="text" placeholder="email address"/>
+            <button>create</button>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+          </form> -->
+          <H3><b>GMart Customer Login</b></H3>
+          <br>
+          <form class="login-form" method="post">
+            <input type="text" placeholder="E-mail ID" name="email" id="email" required/>
+            <input type="password" placeholder="Password" name="password" id="password" required/>
+            <button type="submit">Login</button>
+            <br>
+            <p>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></p>
+          </form>
+          <p>{{ error_message }}</p>
+        </div>
+      </div>
+</body>
+</html>

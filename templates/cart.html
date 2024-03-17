@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>{{ user_id }} Cart</title>
+</head>
+<body>
+    {% block content %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <a class="navbar-brand" href="#">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" height="40" class="d-inline-block align-top" alt="">
+            GMART Customer
+        </a>
+        <form class="form-inline my-2 my-lg-0 ml-auto">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/dashboard">HomePage</a>
+        </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Cart</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/customer_logout">Logout</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <!-- Display Cart Items -->
+    <div style="padding: 2%;">
+        <h2 class="text-center">Your Cart</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>${{ item[2] }}</td>
+            <td>Rs.{{ item[3] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<hr>
+<!-- Display Total Price -->
+<div class="total-price">
+    <strong>Total Price: Rs. {{ total_price }}</strong>
+</div>
+<br>
+<tr>
+    <td colspan="8" class="text-center">
+        <form method="POST" action="{{ url_for('place_order') }}">
+            <button type="submit" class="btn btn-success">Place Order</button>
+        </form>
+    </td>
+</tr>
+</div>
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+    <div class="flash-messages">
+        {% for message in messages %}
+            <div class="flash-message">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}
+{% endwith %}
+    {% endblock %}
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>    
+</body>
+</html>

@@ -1,0 +1,24 @@
+.add-product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #00cc00;
+}
+
+.card {
+    width: 400px;
+}
+
+.card-header {
+    background-color: #00cc00;
+    color: white;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}

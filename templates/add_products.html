@@ -1,0 +1,73 @@
+<!-- templates/add_product.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='add_products.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="GMart Logo" width="90" height="40">
+                GMart Admin
+            </a>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_dashboard') }}">Back to Dashboard</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('admin_logout') }}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="add-product-container">
+        <div class="card">
+            <h1 class="card-header">Add Product</h1>
+            <div class="card-body">
+                <form action="{{ url_for('add_product') }}" method="POST">
+                <label for="product_name">Product Name:</label>
+                <input type="text" id="product_name" name="product_name" required>
+                    <br>
+                <label for="category">Category:</label>
+                <select id="category" name="category" class="form-control">
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+
+                <label for="available_quantity">Available Quantity:</label>
+                <input type="number" id="available_quantity" name="available_quantity" required>
+
+                <label for="unit">Unit:</label>
+                <select id="unit" name="unit">
+                    <option value="kg">kg</option>
+                    <option value="g">litre</option>
+                    <option value="litre">unit</option>
+                </select>
+
+                <label for="brand_name">Brand Name:</label>
+                <input type="text" id="brand_name" name="brand_name" required>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+
+                <button type="submit" class="btn btn-success">Add Product</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
